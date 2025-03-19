@@ -49,7 +49,7 @@ function reducer(state, action) {
       return initialState;
 
     default:
-      break;
+      throw new Error("Unknown");
   }
 }
 

@@ -45,7 +45,8 @@ function reducer(state, action) {
     case "payLoan":
       return { ...state, loan: 0, balance: state.balance - state.loan };
     case "closeAccount":
-      return {};
+      if (state.loan > 0 || state.balance !== 0) return state;
+      return initialState;
 
     default:
       break;
@@ -115,7 +116,12 @@ export default function App() {
         </button>
       </p>
       <p>
-        <button onClick={() => {}} disabled={!isActive}>
+        <button
+          onClick={() => {
+            dispatch({ type: "closeAccount" });
+          }}
+          disabled={!isActive}
+        >
           Close account
         </button>
       </p>

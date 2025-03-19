@@ -22,7 +22,7 @@ INSTRUCTIONS / CONSIDERATIONS:
 const initialState = {
   balance: 0,
   loan: 0,
-  isActive: false,
+  isActive: true,
 };
 
 function reducer(state, action) {

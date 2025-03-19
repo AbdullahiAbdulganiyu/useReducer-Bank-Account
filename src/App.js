@@ -36,9 +36,11 @@ function reducer(state, action) {
     case "withdraw":
       return { ...state, balance: state.balance - action.payload };
     case "requestLoan":
+      if (state.loan > 0) return state;
       return {
         ...state,
-        loan: state.loan === 0 ? 5000 : state.loan,
+        loan: action.payload,
+        balance: state.balance + action.payload,
       };
     case "payLoan":
       return { ...state, loan: state.loan === 5000 ? 0 : state.loan };
@@ -95,7 +97,7 @@ export default function App() {
       <p>
         <button
           onClick={() => {
-            dispatch({ type: "requestLoan" });
+            dispatch({ type: "requestLoan", payload: 5000 });
           }}
           disabled={!isActive}
         >

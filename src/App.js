@@ -43,7 +43,7 @@ function reducer(state, action) {
         balance: state.balance + action.payload,
       };
     case "payLoan":
-      return { ...state, loan: state.loan === 5000 ? 0 : state.loan };
+      return { ...state, loan: 0, balance: state.balance - state.loan };
     case "closeAccount":
       return {};
 

@@ -30,7 +30,7 @@ function reducer(state, action) {
     case "openAccount":
       return { ...state, isActive: true, balance: 500 };
     case "deposit":
-      return {};
+      return { ...state, balance: state.balance + action.payload };
     case "withdraw":
       return {};
     case "requestLoan":
@@ -71,7 +71,12 @@ export default function App() {
         </button>
       </p>
       <p>
-        <button onClick={() => {}} disabled={!isActive}>
+        <button
+          onClick={() => {
+            dispatch({ type: "deposit", payload: 150 });
+          }}
+          disabled={!isActive}
+        >
           Deposit 150
         </button>
       </p>

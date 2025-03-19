@@ -25,7 +25,25 @@ const initialState = {
   isActive: false,
 };
 
-function reducer(state, action) {}
+function reducer(state, action) {
+  switch (action.type) {
+    case "openAccount":
+      return {};
+    case "deposit":
+      return {};
+    case "withdraw":
+      return {};
+    case "requestLoan":
+      return {};
+    case "payLoan":
+      return {};
+    case "closeAccount":
+      return {};
+
+    default:
+      break;
+  }
+}
 
 export default function App() {
   const [{ balance, loan, isActive }, dispatch] = useReducer(

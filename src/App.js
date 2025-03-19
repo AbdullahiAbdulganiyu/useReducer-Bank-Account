@@ -28,7 +28,7 @@ const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case "openAccount":
-      return { ...state, isActive: false, balance: 500 };
+      return { ...state, isActive: true, balance: 500 };
     case "deposit":
       return {};
     case "withdraw":
